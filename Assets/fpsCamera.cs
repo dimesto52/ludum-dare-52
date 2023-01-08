@@ -19,7 +19,9 @@ public class fpsCamera : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.Escape))
-            Cursor.lockState = CursorLockMode.None;
+            if(Cursor.lockState == CursorLockMode.Locked)
+                 Cursor.lockState = CursorLockMode.None;
+            else Cursor.lockState = CursorLockMode.Locked;
 
 
         mouspos += new Vector3(0, -Input.GetAxis("Mouse Y"),0);
